@@ -3,7 +3,7 @@ Xin chào, mình là Nguyễn Đức Hoàn
 ### Web Developer Intern |  xây dựng sản phẩm web thực tế
 
 TP. Hồ Chí Minh, Việt Nam  
-[nguyenduochoan1910@gmail.com](mailto:nguyenduochoan1910@gmail.com)  
+[nguyenduchoan1910@gmail.com](mailto:nguyenduochoan1910@gmail.com)  
 [Portfolio](https://nguyenduchoan12.github.io) | [Tất cả repositories](https://github.com/nguyenduchoan12?tab=repositories)
 
 ---
