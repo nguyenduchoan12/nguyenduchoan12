@@ -4,7 +4,7 @@ Xin chào, mình là Nguyễn Đức Hoàn
 
 TP. Hồ Chí Minh, Việt Nam  
 [nguyenduchoan1910@gmail.com](mailto:nguyenduochoan1910@gmail.com)  
-[Portfolio](https://nguyenduchoan12.github.io) | [Tất cả repositories](https://github.com/nguyenduchoan12?tab=repositories)
+[giới thiệu ngắn](https://nguyenduchoan12.github.io) | [Tất cả repositories](https://github.com/nguyenduchoan12?tab=repositories)
 
 ---
 
@@ -37,7 +37,7 @@ TP. Hồ Chí Minh, Việt Nam
 >  [Demo trực tiếp](https://n22dcpt030.pythonanywhere.com)  
 
 
-### 💬 Mạng xã hội Viyo
+###  Mạng xã hội Viyo
 >cá nhân | Flask + SQLite + HTML/CSS/JS  
 >  [Demo trực tiếp](https://viyo.pythonanywhere.com)  
 
