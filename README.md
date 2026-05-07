@@ -1,14 +1,14 @@
-# 👋 Xin chào, mình là Nguyễn Đức Hoàn
+Xin chào, mình là Nguyễn Đức Hoàn
 
-### Web Developer Intern | Đam mê xây dựng sản phẩm web thực tế
+### Web Developer Intern |  xây dựng sản phẩm web thực tế
 
-📍 TP. Hồ Chí Minh, Việt Nam  
-📧 [nguyenduochoan1910@gmail.com](mailto:nguyenduochoan1910@gmail.com)  
-🔗 [Portfolio](https://nguyenduchoan12.github.io) | [Tất cả repositories](https://github.com/nguyenduchoan12?tab=repositories)
+TP. Hồ Chí Minh, Việt Nam  
+[nguyenduochoan1910@gmail.com](mailto:nguyenduochoan1910@gmail.com)  
+[Portfolio](https://nguyenduchoan12.github.io) | [Tất cả repositories](https://github.com/nguyenduchoan12?tab=repositories)
 
 ---
 
-## 🛠 Kỹ năng
+## Kỹ năng
 
 **Frontend:**  
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
@@ -30,33 +30,33 @@
 
 ---
 
-## 📁 Dự án nổi bật
+## projects
 
-### 📦 Hệ thống quản lý kho hàng
-> Full‑stack cá nhân | Flask + SQLite + HTML/CSS/JS  
-> 🔗 [Demo trực tiếp](https://n22dcpt030.pythonanywhere.com)  
-> 📂 Mã nguồn: *đang cập nhật*
+###  website bán hàng
+>cá nhân | Flask + SQLite + HTML/CSS/JS  
+>  [Demo trực tiếp](https://n22dcpt030.pythonanywhere.com)  
+
 
 ### 💬 Mạng xã hội Viyo
-> Full‑stack cá nhân | Flask + SQLite + HTML/CSS/JS  
-> 🔗 [Demo trực tiếp](https://viyo.pythonanywhere.com)  
-> 📂 Mã nguồn: *đang cập nhật*
+>cá nhân | Flask + SQLite + HTML/CSS/JS  
+>  [Demo trực tiếp](https://viyo.pythonanywhere.com)  
+
 
 *Tất cả dự án đều do mình tự thiết kế, phát triển từ frontend đến backend và triển khai thực tế.*
 
 ---
 
-## 📜 Chứng chỉ & Học vấn
+## Chứng chỉ & Học vấn
 
 - **TOEIC** 2 kỹ năng (Listening & Reading): 790 điểm
 - **Học viện Công nghệ Bưu chính Viễn thông TP.HCM** – Kỹ sư Công nghệ đa phương tiện (2022 – 2027)
 
 ---
 
-## 📂 Thêm
+## Thêm
 
 Xem tất cả mã nguồn và thử nghiệm của mình tại:  
-👉 [github.com/nguyenduchoan12?tab=repositories](https://github.com/nguyenduchoan12?tab=repositories)
+ [github.com/nguyenduchoan12?tab=repositories](https://github.com/nguyenduchoan12?tab=repositories)
 
 ---
 
