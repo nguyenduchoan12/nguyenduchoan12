@@ -3,45 +3,245 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nguyễn Đức Hoàn - Portfolio</title>
+  <title>Nguyễn Đức Hoàn - Web Developer Intern</title>
+  <!-- Import font đẹp từ Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
   <style>
-    body { font-family: Arial, sans-serif; max-width: 700px; margin: 40px auto; padding: 0 20px; line-height: 1.6; }
-    h1 { color: #2c3e50; }
-    .project { background: #f4f4f4; padding: 15px; margin: 15px 0; border-radius: 8px; }
-    a { color: #3498db; text-decoration: none; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    /* Container chính – kính mờ */
+    .glass {
+      background: rgba(255, 255, 255, 0.07);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 25px 45px rgba(0, 0, 0, 0.4);
+      padding: 2.5rem;
+      width: 100%;
+      max-width: 900px;
+      color: #fff;
+    }
+    /* Header CV */
+    .header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      padding-bottom: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .header .name {
+      font-size: 2.4rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .header .title {
+      font-size: 1.2rem;
+      font-weight: 500;
+      opacity: 0.9;
+      margin-top: 0.2rem;
+    }
+    .contact-info {
+      text-align: right;
+    }
+    .contact-info p {
+      margin: 0.3rem 0;
+      font-size: 0.95rem;
+      opacity: 0.85;
+    }
+    .contact-info a {
+      color: #b4aee8;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .contact-info a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+    /* Các khối card kính */
+    .section {
+      margin-bottom: 2rem;
+    }
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      padding-left: 0.8rem;
+      border-left: 4px solid #a18cd1;
+    }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border-radius: 16px;
+      padding: 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+    .card h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      color: #e4d7ff;
+    }
+    .card .sub {
+      font-size: 0.9rem;
+      opacity: 0.7;
+      margin-bottom: 0.8rem;
+    }
+    .card p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      opacity: 0.85;
+    }
+    .card .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    .tag {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.5rem 1.2rem;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 30px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      transition: 0.3s;
+      font-size: 0.9rem;
+    }
+    .btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+      border-color: #fff;
+    }
+    .demo-link {
+      background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+      border: none;
+      color: #0f0c29;
+      font-weight: 600;
+    }
+    .demo-link:hover {
+      background: linear-gradient(135deg, #c4b7f0, #fdd9ed);
+    }
+    /* Responsive */
+    @media (max-width: 650px) {
+      .header { flex-direction: column; align-items: flex-start; }
+      .contact-info { text-align: left; margin-top: 1rem; }
+    }
   </style>
 </head>
 <body>
-  <h1>Xin chào, mình là Nguyễn Đức Hoàn</h1>
-  <p>Web Developer Intern | HTML, CSS, JavaScript, Python (Flask), SQLite</p>
-  <p>📍 TP.HCM | 📧 nguyenduochoan1910@gmail.com</p>
+  <div class="glass">
+    <!-- Header CV -->
+    <div class="header">
+      <div>
+        <div class="name">Nguyễn Đức Hoàn</div>
+        <div class="title">Web Developer Intern</div>
+      </div>
+      <div class="contact-info">
+        <p>📧 nguyenduochoan1910@gmail.com</p>
+        <p>📱 0379259620</p>
+        <p>📍 Thủ Đức, TP.HCM</p>
+        <p>🔗 <a href="https://nguyenduchoan12.github.io" target="_blank">nguyenduchoan12.github.io</a></p>
+      </div>
+    </div>
 
-  <h2>Dự án đã làm</h2>
+    <!-- Mục Dự án / Projects -->
+    <div class="section">
+      <div class="section-title">📁 Dự án</div>
+      <div class="cards-grid">
+        <!-- Card dự án 1: Web quản lý kho -->
+        <div class="card">
+          <h3>📦 Quản lý kho hàng</h3>
+          <div class="sub">Full-stack cá nhân | Flask + SQLite + HTML/CSS/JS</div>
+          <p>Hệ thống nhập/xuất/tồn kho, phân quyền admin, xác thực JWT. Giao diện responsive.</p>
+          <div class="tags">
+            <span class="tag">Python/Flask</span>
+            <span class="tag">SQLite</span>
+            <span class="tag">JavaScript</span>
+          </div>
+          <a href="https://n22dcpt030.pythonanywhere.com" target="_blank" class="btn demo-link">🌐 Demo trực tiếp</a>
+          <a href="#" class="btn">📂 Mã nguồn</a> <!-- Bạn thay link Github repo thật -->
+        </div>
+        <!-- Card dự án 2: Social Media Viyo -->
+        <div class="card">
+          <h3>💬 Mạng xã hội Viyo</h3>
+          <div class="sub">Full-stack cá nhân | Flask + SQLite + HTML/CSS/JS</div>
+          <p>Đăng bài, kết bạn, bình luận, đăng nhập JWT. Tự thiết kế giao diện responsive.</p>
+          <div class="tags">
+            <span class="tag">Python/Flask</span>
+            <span class="tag">SQLite</span>
+            <span class="tag">JavaScript</span>
+          </div>
+          <a href="https://viyo.pythonanywhere.com" target="_blank" class="btn demo-link">🌐 Demo trực tiếp</a>
+          <a href="#" class="btn">📂 Mã nguồn</a>
+        </div>
+        <!-- Thêm card dự án mới ở đây -->
+      </div>
+    </div>
 
-  <div class="project">
-    <h3>🌐 Website Social Media (Viyo)</h3>
-    <p>Mạng xã hội cơ bản tự xây dựng: đăng bài, bình luận, đăng nhập bằng JWT. Backend Flask + SQLite, frontend HTML/CSS/JS.</p>
-    <p>🔗 <a href="https://viyo.pythonanywhere.com" target="_blank">Demo trực tiếp</a></p>
-    <p>📂 <a href="https://github.com/nguyenduochoan/viyo" target="_blank">Mã nguồn (GitHub)</a> <!-- thay link sau khi tạo repo riêng --></p>
+    <!-- Kỹ năng -->
+    <div class="section">
+      <div class="section-title">🛠 Kỹ năng</div>
+      <div class="card">
+        <div class="tags">
+          <span class="tag">HTML5</span><span class="tag">CSS3/SCSS</span><span class="tag">JavaScript (ES6+)</span>
+          <span class="tag">Python/Flask</span><span class="tag">Node.js cơ bản</span><span class="tag">SQLite</span>
+          <span class="tag">Git/GitHub</span><span class="tag">Postman</span><span class="tag">PythonAnywhere</span>
+          <span class="tag">Responsive Design</span><span class="tag">JWT Auth</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mục Tài liệu & Chứng chỉ -->
+    <div class="section">
+      <div class="section-title">📜 Tài liệu</div>
+      <div class="card">
+        <h3>TOEIC Listening & Reading</h3>
+        <div class="sub">Chứng chỉ | 790 điểm</div>
+        <p>Chứng chỉ TOEIC 2 kỹ năng, cấp bởi IIG Việt Nam.</p>
+        <!-- Bạn có thể thêm link file PDF chứng chỉ nếu có -->
+      </div>
+      <!-- Thêm các tài liệu khác (bằng cấp, chứng chỉ online,...) -->
+    </div>
+
+    <!-- Footer -->
+    <div style="text-align: center; opacity: 0.6; font-size: 0.85rem; margin-top: 2rem;">
+      © 2026 Nguyễn Đức Hoàn – Xây dựng bằng <a href="https://pages.github.com" style="color:#b4aee8;">GitHub Pages</a>.
+    </div>
   </div>
-
-  <div class="project">
-    <h3>📦 Hệ thống bán hàng</h3>
-    <p>Web quản lý nhập/xóa, phân quyền admin/khách hàng. Backend Python Flask, SQLite, frontend HTML/CSS/JS.</p>
-    <p>🔗 <a href="https://n22dcpt030.pythonanywhere.com" target="_blank">Demo trực tiếp</a></p>
-    <p>📂 <a href="https://github.com/nguyenduochoan/qlkho" target="_blank">Mã nguồn (GitHub)</a> <!-- thay link --></p>
-  </div>
-
-  <!-- Thêm dự án học tập khác nếu có -->
-
-  <h2>Kỹ năng</h2>
-  <ul>
-    <li>Frontend: HTML5, CSS3, JavaScript (ES6), giao diện responsive</li>
-    <li>Backend: Python (Flask), Node.js (Express cơ bản)</li>
-    <li>Cơ sở dữ liệu: SQLite, MySQL cơ bản</li>
-    <li>Công cụ: Git, Postman, PythonAnywhere</li>
-  </ul>
-
-  <p style="margin-top:40px;">© 2026 Nguyễn Đức Hoàn. Xây dựng bằng GitHub Pages.</p>
 </body>
 </html>
