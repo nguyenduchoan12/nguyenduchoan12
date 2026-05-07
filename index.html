@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nguyễn Đức Hoàn - Web Developer Intern</title>
-  <!-- Import font đẹp từ Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -17,7 +16,6 @@
       justify-content: center;
       padding: 2rem;
     }
-    /* Container chính – kính mờ */
     .glass {
       background: rgba(255, 255, 255, 0.07);
       backdrop-filter: blur(20px);
@@ -30,7 +28,6 @@
       max-width: 900px;
       color: #fff;
     }
-    /* Header CV */
     .header {
       display: flex;
       flex-wrap: wrap;
@@ -71,7 +68,6 @@
       color: #fff;
       text-decoration: underline;
     }
-    /* Các khối card kính */
     .section {
       margin-bottom: 2rem;
     }
@@ -156,7 +152,25 @@
     .demo-link:hover {
       background: linear-gradient(135deg, #c4b7f0, #fdd9ed);
     }
-    /* Responsive */
+    /* Style riêng cho mục liên kết trong card "Mã nguồn / Học hỏi" */
+    .link-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.8rem 0 0 0;
+    }
+    .link-list li {
+      margin-bottom: 0.6rem;
+    }
+    .link-list a {
+      color: #b4aee8;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    .link-list a:hover {
+      text-decoration: underline;
+      color: #fff;
+    }
     @media (max-width: 650px) {
       .header { flex-direction: column; align-items: flex-start; }
       .contact-info { text-align: left; margin-top: 1rem; }
@@ -179,11 +193,11 @@
       </div>
     </div>
 
-    <!-- Mục Dự án / Projects -->
+    <!-- Dự án -->
     <div class="section">
-      <div class="section-title">Project</div>
+      <div class="section-title">Dự án</div>
       <div class="cards-grid">
-        <!-- Card dự án 1: Web quản lý kho -->
+        <!-- Card Quản lý kho hàng -->
         <div class="card">
           <h3>Quản lý bán hàng</h3>
           <div class="sub">Full-stack cá nhân | Flask + SQLite + HTML/CSS/JS</div>
@@ -194,28 +208,26 @@
             <span class="tag">JavaScript</span>
           </div>
           <a href="https://n22dcpt030.pythonanywhere.com" target="_blank" class="btn demo-link">🌐 Demo trực tiếp</a>
-          <a href="#" class="btn">Mã nguồn</a> <!-- Bạn thay link Github repo thật -->
         </div>
-        <!-- Card dự án 2: Social Media Viyo -->
+        <!-- Card Social Media Viyo -->
         <div class="card">
           <h3>Mạng xã hội Viyo</h3>
           <div class="sub">Full-stack cá nhân | Flask + SQLite + HTML/CSS/JS</div>
-          <p>Đăng bài, ảnh, bình luận, đăng nhập JWT. Tự thiết kế giao diện responsive.</p>
+          <p>Đăng bài, kết bạn, bình luận, đăng nhập JWT. Tự thiết kế giao diện responsive.</p>
           <div class="tags">
             <span class="tag">Python/Flask</span>
             <span class="tag">SQLite</span>
             <span class="tag">JavaScript</span>
           </div>
           <a href="https://viyo.pythonanywhere.com" target="_blank" class="btn demo-link">🌐 Demo trực tiếp</a>
-          <a href="#" class="btn">Mã nguồn</a>
         </div>
-        <!-- Thêm card dự án mới ở đây -->
+        <!-- Sau này thêm dự án mới ở đây -->
       </div>
     </div>
 
     <!-- Kỹ năng -->
     <div class="section">
-      <div class="section-title"> Kỹ năng</div>
+      <div class="section-title">🛠 Kỹ năng</div>
       <div class="card">
         <div class="tags">
           <span class="tag">HTML5</span><span class="tag">CSS3/SCSS</span><span class="tag">JavaScript (ES6+)</span>
@@ -226,16 +238,30 @@
       </div>
     </div>
 
-    <!-- Mục Tài liệu & Chứng chỉ -->
+    <!-- Tài liệu -->
     <div class="section">
-      <div class="section-title"> Tài liệu</div>
+      <div class="section-title">Tài liệu</div>
       <div class="card">
         <h3>TOEIC Listening & Reading</h3>
         <div class="sub">Chứng chỉ | 790 điểm</div>
         <p>Chứng chỉ TOEIC 2 kỹ năng, cấp bởi IIG Việt Nam.</p>
-        <!-- Bạn có thể thêm link file PDF chứng chỉ nếu có -->
       </div>
-      <!-- Thêm các tài liệu khác (bằng cấp, chứng chỉ online,...) -->
+      <!-- Thêm các tài liệu khác nếu có -->
+    </div>
+
+    <!-- Mới: Mã nguồn / Demo / Học hỏi -->
+    <div class="section">
+      <div class="section-title"> Source code / Demo / Học hỏi</div>
+      <div class="card">
+        <p>Các repository GitHub, liên kết demo, hoặc khóa học tham khảo.</p>
+        <ul class="link-list">
+          <!-- Bạn tự thêm link của mình vào đây. Ví dụ: -->
+          <!-- <li> <a href="https://github.com/nguyenduchoan12/ql-kho" target="_blank">Repo quản lý kho</a></li> -->
+          <!-- <li> <a href="https://github.com/nguyenduchoan12/viyo" target="_blank">Repo Viyo</a></li> -->
+          <!-- <li> <a href="link-khoa-hoc" target="_blank">Khóa học Flask cơ bản</a></li> -->
+        </ul>
+        <p style="font-size:0.8rem; opacity:0.6; margin-top:1rem;">(Cập nhật thường xuyên khi có tài nguyên mới)</p>
+      </div>
     </div>
 
     <!-- Footer -->
