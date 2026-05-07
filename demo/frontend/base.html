@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<style>
+body {
+    font-family: Poppins;
+    margin: 0;
+    background: linear-gradient(135deg,#1e1e2f,#2b2b45);
+    color: white;
+}
+
+/* NAVBAR GLASS */
+.navbar {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 30px;
+    position:sticky;
+    top:0;
+    backdrop-filter: blur(20px);
+    background: rgba(255,255,255,0.08);
+    border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+.logo {
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:20px;
+    font-weight:600;
+    text-decoration:none;
+    color:white;
+}
+
+.menu {
+    display:flex;
+    gap:20px;
+}
+
+.menu a {
+    color:white;
+    text-decoration:none;
+}
+
+/* DROPDOWN */
+.dropdown {
+    position: relative;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display:none;
+    position:absolute;
+    right:0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(15px);
+    padding:10px;
+    border-radius:10px;
+}
+
+.dropdown-content a {
+    display:block;
+    padding:8px;
+}
+
+.dropdown:hover .dropdown-content {
+    display:block;
+}
+
+/* ANIMATION */
+.fade-in {
+    animation: fade 0.6s ease;
+}
+
+@keyframes fade {
+    from {opacity:0; transform:translateY(10px);}
+    to {opacity:1;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+    <a href="/" class="logo">
+        <i data-lucide="shopping-bag"></i>
+        Shoe Store
+    </a>
+
+    <div class="menu">
+        <a href="/">Home</a>
+        <a href="/cart">Cart</a>
+
+        <div class="dropdown">
+            ⚙️ Account
+            <div class="dropdown-content">
+                <a href="/login">Login</a>
+                <a href="/logout">Logout</a>
+                <a href="/admin">Admin</a>
+                <a href="/ai">AI Search</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="fade-in">
+    {% block content %}{% endblock %}
+</div>
+
+<script>lucide.createIcons();</script>
+
+</body>
+</html>

@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+            padding: 30px;
+            background: linear-gradient(135deg, #1e1e2f, #2b2b45);
+            color: white;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            margin-top: 30px;
+        }
+
+        .card {
+            background: #2f2f4a;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
+        }
+
+        input {
+            padding: 10px;
+            margin: 5px;
+            border-radius: 8px;
+            border: none;
+            background: #44445f;
+            color: white;
+            outline: none;
+        }
+
+        input::placeholder {
+            color: #bbb;
+        }
+
+        button {
+            padding: 10px 18px;
+            border: none;
+            border-radius: 8px;
+            background: #ff5c5c;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #ff3b3b;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 15px;
+            background: #2f2f4a;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th {
+            background: #3a3a5a;
+            padding: 12px;
+        }
+
+        td {
+            padding: 12px;
+            text-align: center;
+            border-top: 1px solid #444;
+        }
+
+        tr:hover {
+            background: #3a3a5a;
+        }
+
+        a {
+            color: #ff7b7b;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .back {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background: #44445f;
+            border-radius: 8px;
+            color: white;
+        }
+
+        .back:hover {
+            background: #55557a;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Admin Dashboard</h2>
+
+<div class="card">
+    <h3>➕ Thêm sản phẩm</h3>
+    <form action="/add_product" method="POST">
+        <input name="name" placeholder="Tên">
+        <input name="brand" placeholder="Brand">
+        <input name="price" placeholder="Price">
+        <input name="description" placeholder="Description">
+        <input name="image" placeholder="Image filename">
+        <br>
+        <button>Add</button>
+    </form>
+</div>
+
+<div class="card">
+    <h3>📦 Quản lý sản phẩm</h3>
+
+    <table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Action</th>
+    </tr>
+
+    {% for p in products %}
+    <tr>
+        <td>{{ p[0] }}</td>
+        <td>{{ p[1] }}</td>
+        <td>{{ p[3] }}</td>
+        <td>
+            <a href="/delete/{{ p[0] }}">❌ Delete</a> |
+            <a href="/edit/{{ p[0] }}">✏ Edit</a>
+        </td>
+    </tr>
+    {% endfor %}
+    </table>
+</div>
+
+<a href="/" class="back">⬅ Quay về trang chủ</a>
+
+</body>
+</html>
+

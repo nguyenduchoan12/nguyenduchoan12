@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 30px;
+}
+
+.item {
+    display: flex;
+    gap: 15px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(15px);
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    align-items: center;
+}
+
+img {
+    width: 90px;
+    border-radius: 10px;
+}
+
+.price {
+    color: #ff6b6b;
+    font-weight: bold;
+}
+
+.actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+    padding: 12px 18px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: white;
+}
+
+.checkout { background: #ff6b6b; }
+.home { background: rgba(255,255,255,0.1); }
+</style>
+
+<div class="container">
+<h2>🛒 Your Cart</h2>
+
+{% if products %}
+    {% for p in products %}
+    <div class="item">
+        <img src="{{ url_for('static', filename='images/' + (p[5] if p[5] else 'default.jpg')) }}">
+        <div>
+            <h4>{{ p[1] }}</h4>
+            <p>{{ p[2] }}</p>
+            <p class="price">${{ p[3] }}</p>
+            <a href="/remove/{{ p[0] }}">❌ Remove</a>
+        </div>
+    </div>
+    {% endfor %}
+
+    <h3>Total: ${{ total }}</h3>
+
+    <div class="actions">
+        <a href="/" class="btn home">🏠 Continue</a>
+        <a href="/address" class="btn checkout">💳 Checkout</a>
+    </div>
+
+{% else %}
+    <p>Cart is empty</p>
+{% endif %}
+
+</div>
+
+{% endblock %}

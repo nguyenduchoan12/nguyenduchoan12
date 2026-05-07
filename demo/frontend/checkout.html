@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+.box {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(20px);
+    padding: 25px;
+    border-radius: 20px;
+    width: 320px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.qr-img {
+    width: 260px;
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.btn {
+    margin-top: 10px;
+    display: inline-block;
+    padding: 10px 15px;
+    background: #ff6b6b;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+}
+</style>
+
+<h2 style="text-align:center;">💳 QR Payment</h2>
+
+<div class="box">
+    <h3>📦 Shipping Info</h3>
+    <p><b>{{ address.name }}</b></p>
+    <p>{{ address.phone }}</p>
+    <p>{{ address.address }}</p>
+</div>
+
+<div class="box">
+    <p><b>Total:</b> ${{ total }}</p>
+
+    <!-- 🔥 FIX QUAN TRỌNG -->
+    <img src="{{ qr }}" class="qr-img" alt="QR Payment">
+
+    <p>Scan to pay</p>
+
+    <a href="/pay" class="btn">✅ I Paid</a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+.loader {
+    border:5px solid #333;
+    border-top:5px solid #ff6b6b;
+    border-radius:50%;
+    width:50px;
+    height:50px;
+    animation: spin 1s linear infinite;
+    margin:auto;
+    margin-top:100px;
+}
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
+</style>
+
+<h2>Processing Payment...</h2>
+<div class="loader"></div>
+
+<script>
+setTimeout(() => {
+    window.location.href = "/success";
+}, 3000);
+</script>
+
+{% endblock %}

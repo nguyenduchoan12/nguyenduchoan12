@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+.container {
+    display: flex;
+    gap: 40px;
+    padding: 40px;
+    justify-content: center;
+}
+
+.card {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(20px);
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 800px;
+    display: flex;
+    gap: 30px;
+}
+
+img {
+    width: 350px;
+    border-radius: 15px;
+}
+
+.price {
+    color: #ff6b6b;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+button {
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.cart { background: white; color: #ff6b6b; }
+.buy { background: #ff6b6b; color: white; }
+</style>
+
+<div class="container">
+
+<div class="card">
+    <img src="{{ url_for('static', filename='images/' + (p[5] if p[5] else 'default.jpg')) }}">
+
+    <div>
+        <h2>{{ p[1] }}</h2>
+        <p>{{ p[2] }}</p>
+
+        <p class="price">${{ p[3] }}</p>
+
+        <p>{{ p[4] }}</p>
+
+        <a href="/add_to_cart/{{ p[0] }}">
+            <button class="cart">🛒 Add to Cart</button>
+        </a>
+
+        <a href="/address">
+            <button class="buy">⚡ Buy Now</button>
+        </a>
+    </div>
+</div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,167 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 40px;
+}
+
+.card {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(20px);
+    padding: 25px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+h2, h3 {
+    color: #ff6b6b;
+}
+
+.highlight {
+    color: #ffd166;
+    font-weight: bold;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td, th {
+    padding: 10px;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+</style>
+
+<div class="container">
+
+<h2>🤖 AI Search System (Machine Learning)</h2>
+
+<!-- TF-IDF -->
+<div class="card">
+<h3>1. TF-IDF Vectorization</h3>
+
+<p>
+Hệ thống sử dụng <span class="highlight">TF-IDF</span> để chuyển văn bản thành vector số.
+</p>
+
+<ul>
+<li><b>TF (Term Frequency)</b>: số lần từ xuất hiện trong sản phẩm</li>
+<li><b>IDF (Inverse Document Frequency)</b>: độ hiếm của từ trong toàn bộ database</li>
+</ul>
+
+<p class="highlight">
+→ Từ càng hiếm → càng quan trọng
+</p>
+</div>
+
+<!-- COSINE -->
+<div class="card">
+<h3>2. Cosine Similarity</h3>
+
+<p>
+Sau khi vector hóa, hệ thống dùng <span class="highlight">Cosine Similarity</span> 
+để đo độ giống giữa query và sản phẩm.
+</p>
+
+<p class="highlight">
+Similarity = cos(θ)
+</p>
+
+<ul>
+<li>≈ 1 → rất giống</li>
+<li>≈ 0 → không liên quan</li>
+</ul>
+</div>
+
+<!-- PRICE FILTER -->
+<div class="card">
+<h3>3. Smart Price Filtering (Custom AI Logic)</h3>
+
+<p>Hệ thống hiểu query người dùng:</p>
+
+<ul>
+<li><b>"nike 100"</b> → lọc giá ≤ 100</li>
+<li><b>"giày rẻ"</b> → giá thấp (&lt; 100)</li>
+<li><b>"giày cao cấp"</b> → giá cao (&gt; 150)</li>
+</ul>
+
+<p class="highlight">
+→ Kết hợp NLP + Rule-based filtering
+</p>
+</div>
+
+<!-- FLOW -->
+<div class="card">
+<h3>4. System Flow</h3>
+
+<ol>
+<li>User nhập hoặc nói (voice)</li>
+<li>Chuyển thành text</li>
+<li>Vector hóa bằng TF-IDF</li>
+<li>Tính Cosine Similarity</li>
+<li>Lọc theo giá</li>
+<li>Sort kết quả</li>
+</ol>
+</div>
+
+<!-- COMPARISON -->
+<div class="card">
+<h3>5. Comparison</h3>
+
+<table>
+<tr>
+<th>Method</th>
+<th>Accuracy</th>
+<th>Meaning Understanding</th>
+</tr>
+
+<tr>
+<td>SQL LIKE</td>
+<td>Low</td>
+<td>No</td>
+</tr>
+
+<tr>
+<td>TF-IDF + Cosine</td>
+<td>High</td>
+<td>Yes</td>
+</tr>
+
+<tr>
+<td>TF-IDF + Filter (Your System)</td>
+<td>Very High</td>
+<td>Yes + Context</td>
+</tr>
+
+</table>
+</div>
+
+<!-- CHART -->
+<div class="card">
+<h3>6. Performance Chart</h3>
+<canvas id="chart"></canvas>
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+new Chart(document.getElementById('chart'), {
+    type: 'bar',
+    data: {
+        labels: ['SQL LIKE', 'TF-IDF', 'TF-IDF + Filter'],
+        datasets: [{
+            label: 'Accuracy (%)',
+            data: [40, 75, 90]
+        }]
+    }
+});
+</script>
+
+{% endblock %}

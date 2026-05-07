@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shoe Store</title>
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Icons (modern, white) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        * { box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+        body {
+            margin: 0;
+            background: linear-gradient(135deg, #1e1e2f, #2b2b45);
+            color: white;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            backdrop-filter: blur(15px);
+            background: rgba(255,255,255,0.08);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 600;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* dropdown */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 35px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 12px;
+            min-width: 150px;
+            padding: 10px;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 8px;
+            margin: 5px 0;
+        }
+
+        /* ===== SEARCH ===== */
+        .search-box {
+            text-align: center;
+            margin: 30px;
+            position: relative;
+        }
+
+        input {
+            padding: 12px;
+            width: 350px;
+            border-radius: 12px;
+            border: none;
+            outline: none;
+        }
+
+        button {
+            padding: 12px;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* ===== GRID ===== */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .card {
+            backdrop-filter: blur(20px);
+            background: rgba(255,255,255,0.08);
+            border-radius: 20px;
+            padding: 15px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        .price {
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+
+        .cart-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px;
+            background: #ff6b6b;
+            border-radius: 10px;
+            text-decoration: none;
+            color: white;
+        }
+
+        mark { background: yellow; color: black; }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <i data-lucide="shopping-bag"></i>
+        Shoe Store
+    </div>
+
+    <div>
+        <a href="/cart"><i data-lucide="shopping-cart"></i>Cart</a>
+        <a href="/ai"><i data-lucide="cpu"></i>AI</a>
+
+        <div class="dropdown">
+            <a onclick="toggleMenu()"><i data-lucide="user"></i>Account</a>
+
+            <div class="dropdown-content" id="menu">
+                <a href="/login">Login</a>
+                <a href="/logout">Logout</a>
+                <a href="/admin">Admin</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- SEARCH -->
+<div class="search-box">
+    <form method="GET">
+        <input name="q" onkeyup="suggest()" placeholder="Search shoes..." value="{{ query or '' }}">
+        <button>Search</button>
+        <button type="button" onclick="startVoice()">🎤</button>
+    </form>
+</div>
+
+<!-- PRODUCTS -->
+<div class="grid">
+{% for p in products %}
+<div class="card" onclick="goDetail({{ p[0] }})">
+    <img src="{{ url_for('static', filename='images/' + (p[5] if p[5] else 'default.jpg')) }}">
+    <h4>{{ p[1] }}</h4>
+    <p class="price">${{ p[3] }}</p>
+
+    <a href="/add_to_cart/{{ p[0] }}" class="cart-btn" onclick="event.stopPropagation()">Add</a>
+</div>
+{% endfor %}
+</div>
+
+<script src="{{ url_for('static', filename='js/voice.js') }}"></script>
+
+<script>
+lucide.createIcons();
+
+function goDetail(id){
+    window.location.href = "/product/" + id;
+}
+
+function toggleMenu(){
+    let m = document.getElementById("menu");
+    m.style.display = (m.style.display === "block") ? "none" : "block";
+}
+
+// click outside → close
+document.addEventListener("click", function(e){
+    let menu = document.getElementById("menu");
+    if(!e.target.closest(".dropdown")){
+        menu.style.display = "none";
+    }
+});
+</script>
+
+</body>
+</html>
